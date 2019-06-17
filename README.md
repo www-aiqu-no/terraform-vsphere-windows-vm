@@ -1,11 +1,11 @@
 # terraform-vsphere-windows-vm
 Deploy Windows virtual machine to vSphere cluster (from template)
 
-## Using the modules
+## Using the module (from github)
 1) Use the following module-block in your terraform-code:
 ```hcl
 module "my_module_name" {
-  source "github.com:www-aiqu-no/terraform-vsphere-windows-vm.git"
+  source "github.com:www-aiqu-no/terraform-vsphere-windows-vm.git?ref=v0.0.1"
   ...
 }
 ```
