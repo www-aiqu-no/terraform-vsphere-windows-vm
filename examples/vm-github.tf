@@ -1,5 +1,5 @@
 module "windows_vm" {
-  source = "github.com/www-aiqu-no/terraform-vsphere-windows-vm.git"
+  source = "github.com/www-aiqu-no/terraform-vsphere-windows-vm.git?ref=v0.0.2"
 # ------------------------------------------------------------------------------
   hosts  = ["my-vsphere-host"]
 # ------------------------------------------------------------------------------
@@ -22,4 +22,9 @@ module "windows_vm" {
   #dns_domain         = "contoso.com"
 # ------------------------------------------------------------------------------
   #join_domain = false
+# ------------------------------------------------------------------------------
+  #vsphere_custom_attributes = {
+  #  "${data.vsphere_custom_attribute.first.id}"  = "somevalue"
+  #  "${data.vsphere_custom_attribute.second.id}" = "somevalue"
+  #}
 }

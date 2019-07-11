@@ -1,42 +1,31 @@
 ## =============================================================================
-#                                                Deploy VM from vSphere Template
+#                                        Deploy Windows VM from vSphere Template
 ## =============================================================================
 resource "vsphere_virtual_machine" "vm" {
   count = "${length(var.hosts)}"
 # ------------------------------------------------------------------------------
-
   annotation                  = "Deployed by HashiCorp Terraform"
   wait_for_guest_net_timeout  = 0
   wait_for_guest_net_routable = false
-
 # ------------------------------------------------------------------------------
-
   host_system_id   = "${data.vsphere_host.hosts.*.id[count.index]}"
   resource_pool_id = "${data.vsphere_resource_pool.pool.id}"
   datastore_id     = "${data.vsphere_datastore.datastore.id}"
-
 # ------------------------------------------------------------------------------
-
   guest_id  = "${data.vsphere_virtual_machine.template.guest_id}"
   firmware  = "${data.vsphere_virtual_machine.template.firmware}"
   scsi_type = "${data.vsphere_virtual_machine.template.scsi_type}"
-
 # ------------------------------------------------------------------------------
-
   name     = "${var.name}${count.index}"
   folder   = "${var.vsphere_folder}"
   memory   = "${var.ram_mb}"
   num_cpus = "${var.cpu}"
-
 # ------------------------------------------------------------------------------
-
   cpu_hot_add_enabled    = true
   cpu_hot_remove_enabled = true
   memory_hot_add_enabled = true
   boot_delay             = "${var.vsphere_boot_delay}"
-
 # ------------------------------------------------------------------------------
-
   disk {
     label            = "disk0"
     unit_number      = 0
@@ -49,16 +38,12 @@ resource "vsphere_virtual_machine" "vm" {
       var.disk_gb
     }"
   }
-
 # ------------------------------------------------------------------------------
-
   network_interface {
     adapter_type = "${data.vsphere_virtual_machine.template.network_interface_types.0}"
     network_id   = "${data.vsphere_network.network.id}"
   }
-
 # ------------------------------------------------------------------------------
-
   clone {
     linked_clone  = false
     template_uuid = "${data.vsphere_virtual_machine.template.id}"
@@ -84,7 +69,7 @@ resource "vsphere_virtual_machine" "vm" {
       }
     }
   }
-
 # ------------------------------------------------------------------------------
-
+  custom_attributes = "${var.vsphere_custom_attributes}"
+# ------------------------------------------------------------------------------
 }

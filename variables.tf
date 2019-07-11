@@ -150,3 +150,11 @@ variable "vsphere_info" {
   description = "vSphere vm description"
   default = "Deployed with Terraform"
 }
+# ------------------------------------------------------------------------------
+#                                                               vCenter Required
+# ------------------------------------------------------------------------------
+variable "vsphere_custom_attributes" {
+  type = "map"
+  description = "vSphere vCenter only: custom attribute map"
+  default = {}
+}
