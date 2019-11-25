@@ -2,22 +2,22 @@
 #                                                              vSphere variables
 ## -----------------------------------------------------------------------------
 variable "datacenter" {
-  type        = "string"
+  type        = string
   description = "vSphere datacenter"
 }
 
 variable "resource_pool" {
-  type        = "string"
+  type        = string
   description = "vSphere resource pool"
 }
 
 variable "datastore_backend" {
-  type        = "string"
+  type        = string
   description = "vSphere storage"
 }
 
 variable "network_backend" {
-  type        = "string"
+  type        = string
   description = "vSphere network"
 }
 
@@ -25,12 +25,12 @@ variable "network_backend" {
 #                                                          VM Required variables
 ## -----------------------------------------------------------------------------
 variable "name" {
-  type        = "string"
+  type        = string
   description = "Name of the VM"
 }
 
 variable "template" {
-  type        = "string"
+  type        = string
   description = "vSphere VM template"
 }
 
@@ -38,115 +38,115 @@ variable "template" {
 #                                                          VM Optional variables
 ## -----------------------------------------------------------------------------
 variable "hosts" {
-  type        = "list"
+  type        = list
   description = "vSphere hosts to create vm(s) on"
   default     = []
 }
 
 variable "cpu" {
-  type        = "string"
+  type        = string
   description = "Number of CPUs to assign"
   default     = 2
 }
 
 variable "ram_mb" {
-  type        = "string"
+  type        = string
   description = "Amount of memory to assign (MB)"
   default     = "4096"
 }
 
 variable "disk_gb" {
-  type        = "string"
+  type        = string
   description = "Amount of storage (GB)"
   default     = "80"
 }
 
 variable "ipv4_network" {
-  type        = "string"
+  type        = string
   description = "Primary ipv4 network"
   default     = "10.0.250.0/24"
 }
 
 variable "ipv4_address_start" {
-  type        = "string"
+  type        = string
   description = "Primary ipv4 address"
   default     = "10"
 }
 
 variable "ipv4_gateway" {
-  type        = "string"
+  type        = string
   description = "Primary ipv4 network gateway"
   default     = "10.0.250.1"
 }
 
 variable "dns_servers" {
-  type        = "list"
+  type        = list
   description = "DNS resolver(s)"
   default     = ["8.8.8.8", "8.8.4.4"]
 }
 
 variable "dns_domain" {
-  type        = "string"
+  type        = string
   description = "Primary search-domain"
   default     = "localdomain"
 }
 
 variable "local_admin_password" {
-  type        = "string"
+  type        = string
   description = "Default Windows administrator password"
   default     = "GoGoGadget!"
 }
 
 variable "join_domain" {
-  type        = "string"
+  type        = string
   description = "Join to domain"
   default     = false
 }
 
 variable "join_domain_name" {
-  type        = "string"
+  type        = string
   description = "Name of domain to join"
   default     = "Contoso"
 }
 
 variable "join_domain_user" {
-  type        = "string"
+  type        = string
   description = "Domain account for joining"
   default     = "BillGates"
 }
 
 variable "join_domain_secret" {
-  type        = "string"
+  type        = string
   description = "Password for joining domain"
   default     = "GoGoGadget!"
 }
 
 variable "windows_organization" {
-  type        = "string"
+  type        = string
   description = "Organization to join"
   default     = "Contoso Inc."
 }
 
 variable "windows_workgroup" {
-  type        = "string"
+  type        = string
   description = "Workgroup to join"
   default     = "WORKGROUP"
 }
 
 variable "vsphere_boot_delay" {
-  type = "string"
+  type = string
   description = "VM boot delay"
   default = 5000
 }
 
 variable "vsphere_folder" {
-  type = "string"
+  type = string
   description = "vSphere folder to place VM"
   default = ""
 }
 
 variable "vsphere_info" {
-  type = "string"
+  type = string
   description = "vSphere vm description"
   default = "Deployed with Terraform"
 }
@@ -154,7 +154,7 @@ variable "vsphere_info" {
 #                                                               vCenter Required
 # ------------------------------------------------------------------------------
 variable "vsphere_custom_attributes" {
-  type = "map"
+  type = map
   description = "vSphere vCenter only: custom attribute map"
   default = {}
 }

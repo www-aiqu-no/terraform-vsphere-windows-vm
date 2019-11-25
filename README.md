@@ -1,7 +1,7 @@
 # terraform-vsphere-windows-vm
 Deploy Windows virtual machine to vSphere cluster (from template)
 
-Terraform (tested) version: 0.12.x
+Terraform (tested) version: 0.12.16
 
 ## Using the module (from github)
 1. Use the following module-block in your terraform-code:

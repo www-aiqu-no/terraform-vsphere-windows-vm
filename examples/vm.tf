@@ -1,6 +1,6 @@
 module "windows_vm" {
   source  = "www-aiqu-no/windows-vm/vsphere"
-  version = "0.0.2"
+  version = "0.1.0"
 # ------------------------------------------------------------------------------
   hosts  = ["my-vsphere-host"]
 # ------------------------------------------------------------------------------
@@ -25,8 +25,8 @@ module "windows_vm" {
   #join_domain = false
 # ------------------------------------------------------------------------------
   #vsphere_custom_attributes = {
-  #  "${data.vsphere_custom_attribute.first.id}"  = "somevalue"
-  #  "${data.vsphere_custom_attribute.second.id}" = "somevalue"
+  #  data.vsphere_custom_attribute.first.id  = "somevalue"
+  #  data.vsphere_custom_attribute.second.id = "somevalue"
   #}
 # ------------------------------------------------------------------------------
 }

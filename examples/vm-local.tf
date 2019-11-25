@@ -1,5 +1,5 @@
 module "windows_vm" {
-  source = "github.com/www-aiqu-no/terraform-vsphere-windows-vm.git?ref=v0.1.0"
+  source = "../"
 # ------------------------------------------------------------------------------
   hosts  = ["my-vsphere-host"]
 # ------------------------------------------------------------------------------
