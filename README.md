@@ -5,12 +5,18 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/www-aiqu-no/terraform-vsphere-windows-vm)
 ![GitHub issues](https://img.shields.io/github/issues/www-aiqu-no/terraform-vsphere-windows-vm)
 
-# Limitations
+## Limitations
 - Single disk & datastore
 - Single NIC
 - Only ipv4
 
-# Example (incl. provisioning)
+Note that terraform registry marks any resources with 'null' as default value as required, even if it isn't. The only required parameters for this module are:
+- datacenter
+- datastore
+- network
+- template
+
+## Example
 ```hcl
 # See under example/ for a better & more detailed example
 # --
