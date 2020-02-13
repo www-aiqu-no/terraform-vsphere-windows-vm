@@ -1,2 +1,7 @@
-.terraform
-.tests
+.terraform/
+.tests/
+.legacy/
+*.tfvars
+*.tfstate
+*.tfstate.backup
+*.lock.info
